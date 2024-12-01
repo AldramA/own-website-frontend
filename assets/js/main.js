@@ -1,15 +1,4 @@
-/**
- * main.js - Core JavaScript functionality for the portfolio website
- * Author: Muhammed Sobhi
- * Description: Handles navigation, scrolling, form submission, and portfolio error handling
- */
-
-// =============== Navigation & Scrolling ===============
-
-/**
- * Implements smooth scrolling for all navigation links
- * Prevents default anchor behavior and smoothly scrolls to target section
- */
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -19,10 +8,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-/**
- * Handles active state of navigation links based on scroll position
- * Adds 'active' class to the nav link of the currently visible section
- */
+// Add active class to nav links on scroll
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
@@ -43,12 +29,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// =============== Contact Form Handling ===============
-
-/**
- * Handles contact form submission and feedback
- * Shows loading state, processes form data, and displays response message
- */
+// Contact form handling
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     const formResponse = document.getElementById('form-response');
@@ -71,30 +52,31 @@ if (contactForm) {
         };
         
         try {
-            // TODO: Add actual form submission logic here
+            // Here you can add your form submission logic
+            // For now, just show success message
             formResponse.classList.remove('hidden', 'error');
             formResponse.classList.add('success');
             responseMessage.textContent = 'Message sent successfully! I will get back to you soon.';
             
+            // Reset form
             contactForm.reset();
         } catch (error) {
+            // Show error message
             formResponse.classList.remove('hidden', 'success');
             formResponse.classList.add('error');
             responseMessage.textContent = 'Failed to send message. Please try again later.';
         } finally {
+            // Reset button state
             submitBtn.innerHTML = originalBtnText;
             submitBtn.disabled = false;
+            
+            // Scroll response into view
             formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     });
 }
 
-// =============== Portfolio Error Handling ===============
-
-/**
- * Starts the countdown timer for portfolio retry
- * Manages the retry button state and countdown display
- */
+// Portfolio error handling
 function startPortfolioErrorCountdown() {
     const countdownElement = document.querySelector('.countdown-timer');
     const retryButton = document.querySelector('.terminal-retry-btn');
@@ -124,11 +106,6 @@ function startPortfolioErrorCountdown() {
     }, 1000);
 }
 
-/**
- * Handles portfolio data reload attempts
- * Shows loading state and manages error display
- * TODO: Replace setTimeout with actual GitHub API call
- */
 function retryLoadPortfolio() {
     const errorWindow = document.querySelector('.portfolio-error-window');
     const projectsGrid = document.querySelector('.projects-grid');
@@ -144,8 +121,9 @@ function retryLoadPortfolio() {
         </div>
     `;
 
-    // Simulate API call (replace with actual GitHub API integration)
+    // Simulate loading (replace this with actual API call when ready)
     setTimeout(() => {
+        // Show error again for now
         terminalContent.innerHTML = `
             <div class="terminal-line">
                 <span class="terminal-prompt">$</span> fetch portfolio-data --source github --force
@@ -182,7 +160,7 @@ function retryLoadPortfolio() {
     }, 2000);
 }
 
-// Start countdown on page load
+// Start the countdown when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     const errorWindow = document.querySelector('.portfolio-error-window');
     if (errorWindow) {

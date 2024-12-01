@@ -1,39 +1,22 @@
-/**
- * style.css - Main stylesheet for the portfolio website
- * Author: Muhammed Sobhi
- * Theme: Terminal-inspired dark theme
- */
-
-/* =============== Reset and Base Styles =============== */
-/**
- * Reset all elements to have no margin, padding, and box-sizing set to border-box
- */
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Color Variables */
-/**
- * Define color variables for the theme
- */
 :root {
-    --bg-primary: #1E1E1E;      /* Main background color */
-    --bg-secondary: #252526;    /* Secondary background for elements */
-    --text-primary: #D4D4D4;    /* Primary text color */
-    --text-secondary: #858585;  /* Secondary text color for less emphasis */
-    --accent-primary: #569CD6;  /* Primary accent color */
-    --accent-secondary: #608B4E; /* Secondary accent for highlights */
-    --terminal-green: #4EC9B0;  /* Terminal success color */
-    --terminal-yellow: #DCDCAA; /* Terminal warning color */
-    --terminal-red: #CE9178;    /* Terminal error color */
+    --bg-primary: #1E1E1E;
+    --bg-secondary: #252526;
+    --text-primary: #D4D4D4;
+    --text-secondary: #858585;
+    --accent-primary: #569CD6;
+    --accent-secondary: #608B4E;
+    --terminal-green: #4EC9B0;
+    --terminal-yellow: #DCDCAA;
+    --terminal-red: #CE9178;
 }
 
-/* Base Styles */
-/**
- * Set base styles for the body element
- */
 body {
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
     line-height: 1.6;
@@ -41,19 +24,13 @@ body {
     background: var(--bg-primary);
 }
 
-/**
- * Set styles for the container element
- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* =============== Navigation Styles =============== */
-/**
- * Set styles for the navigation element
- */
+/* Navigation */
 nav {
     background: var(--bg-secondary);
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
@@ -64,9 +41,6 @@ nav {
     border-bottom: 1px solid var(--accent-primary);
 }
 
-/**
- * Set styles for the navigation container
- */
 nav .container {
     display: flex;
     justify-content: space-between;
@@ -74,20 +48,12 @@ nav .container {
     padding: 1rem 20px;
 }
 
-/* Logo Styling */
-/**
- * Set styles for the logo element
- */
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--terminal-green);
 }
 
-/* Navigation Links */
-/**
- * Set styles for the navigation links
- */
 .nav-links {
     display: flex;
     list-style: none;
@@ -104,19 +70,16 @@ nav .container {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--terminal-green);
 }
 
 .nav-links a.active {
-    color: var(--terminal-green);
     border-bottom: 2px solid var(--terminal-green);
 }
 
-/* =============== Section Styles =============== */
-/**
- * Set styles for section elements
- */
+/* Sections */
 section {
     padding: 5rem 0;
     border-bottom: 1px solid var(--bg-secondary);
@@ -129,41 +92,60 @@ section h2 {
     color: var(--terminal-yellow);
 }
 
-/* =============== Terminal Window Styles =============== */
-/**
- * Set styles for terminal window elements
- */
-.terminal-window {
-    background: var(--bg-secondary);
-    border-radius: 6px;
-    overflow: hidden;
-    margin: 2rem 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+/* Home Section */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--bg-primary);
+    position: relative;
 }
 
-/**
- * Set styles for terminal window headers
- */
+.hero {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--terminal-green);
+}
+
+.hero p {
+    color: var(--terminal-yellow);
+    font-size: 1.2rem;
+}
+
+/* Terminal Styles */
+.terminal-window {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--accent-primary);
+    margin-bottom: 2rem;
+}
+
 .terminal-header {
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--accent-primary);
 }
 
-/**
- * Set styles for terminal window buttons
- */
+.terminal-title {
+    color: var(--terminal-green);
+    font-size: 0.9rem;
+}
+
 .terminal-buttons {
     display: flex;
     gap: 0.5rem;
 }
 
-/* Terminal Window Control Buttons */
-/**
- * Set styles for terminal window control buttons
- */
 .terminal-button-red,
 .terminal-button-yellow,
 .terminal-button-green {
@@ -176,17 +158,21 @@ section h2 {
 .terminal-button-yellow { background: #ffbd2e; }
 .terminal-button-green { background: #27c93f; }
 
-/**
- * Set styles for terminal window content
- */
 .terminal-content {
     padding: 1rem;
 }
 
-/* =============== Portfolio Error Styles =============== */
-/**
- * Set styles for portfolio error elements
- */
+.terminal-prompt {
+    color: var(--terminal-green);
+    font-weight: bold;
+}
+
+.terminal-line {
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Portfolio Error Styles */
 .portfolio-error-window {
     max-width: 600px;
     margin: 0 auto;
@@ -224,10 +210,6 @@ section h2 {
     color: var(--accent-secondary);
 }
 
-/* Terminal Links */
-/**
- * Set styles for terminal links
- */
 .terminal-link {
     color: var(--terminal-green);
     text-decoration: none;
@@ -239,19 +221,18 @@ section h2 {
     border-bottom-color: var(--accent-primary);
 }
 
-/* =============== Loading Animation Styles =============== */
-/**
- * Set styles for loading animation elements
- */
 .loading-message {
     padding: 1rem 0;
     color: var(--terminal-yellow);
 }
 
-/* Loading Spinner Animation */
-/**
- * Define animation for loading spinner
- */
+.loading-spinner::before {
+    content: "⠋";
+    animation: spin 1s steps(10) infinite;
+    display: inline-block;
+    width: 1em;
+}
+
 @keyframes spin {
     0% { content: "⠋"; }
     10% { content: "⠙"; }
@@ -265,17 +246,6 @@ section h2 {
     90% { content: "⠏"; }
 }
 
-.loading-spinner::before {
-    content: "⠋";
-    animation: spin 1s steps(10) infinite;
-    display: inline-block;
-    width: 1em;
-}
-
-/* =============== Retry Button Styles =============== */
-/**
- * Set styles for retry button elements
- */
 .retry-button {
     margin-top: 1rem;
     display: flex;
@@ -311,10 +281,6 @@ section h2 {
     text-align: center;
 }
 
-/* =============== Cursor Animation =============== */
-/**
- * Define animation for cursor blink
- */
 .cursor-blink {
     animation: blink 1s step-end infinite;
 }
@@ -324,10 +290,612 @@ section h2 {
     50% { opacity: 0; }
 }
 
-/* =============== Skills Section Styles =============== */
-/**
- * Set styles for skills section elements
- */
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-secondary);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    .terminal-window {
+        margin: 1rem;
+    }
+}
+
+/* About Section */
+.about-content {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--accent-primary);
+}
+
+.terminal-output {
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.terminal-prompt {
+    color: var(--terminal-green);
+    font-weight: bold;
+}
+
+.comment {
+    color: var(--accent-secondary);
+    font-weight: bold;
+}
+
+.command {
+    color: var(--terminal-yellow);
+    font-weight: bold;
+}
+
+.terminal-output br {
+    margin-bottom: 0.5em;
+}
+
+/* Directory listing style */
+.terminal-output [class^="drwx"] {
+    color: var(--terminal-green);
+    font-weight: normal;
+}
+
+/* Tree structure style */
+.terminal-output .tree {
+    color: var(--text-primary);
+}
+
+.terminal-output [class^="├──"],
+.terminal-output [class^="└──"] {
+    color: var(--accent-primary);
+    padding-left: 1em;
+}
+
+/* Add typing animation to the last command */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.terminal-output .command:last-of-type {
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid var(--terminal-green);
+    white-space: nowrap;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--terminal-green) }
+}
+
+/* About Section Expansion */
+.terminal-expanded {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--accent-primary);
+    transition: all 0.3s ease;
+}
+
+.terminal-expanded.hidden {
+    display: none;
+}
+
+.terminal-button {
+    background: transparent;
+    border: 1px solid var(--terminal-green);
+    color: var(--terminal-green);
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: left;
+}
+
+.terminal-button:hover {
+    background: rgba(78, 201, 176, 0.1);
+    border-color: var(--terminal-green);
+}
+
+.terminal-button .terminal-prompt {
+    color: var(--terminal-green);
+}
+
+/* Add a blinking cursor effect to the button */
+.terminal-button::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: var(--terminal-green);
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Smooth expansion animation */
+.terminal-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.terminal-expanded:not(.hidden) {
+    max-height: 1000px;
+    transition: max-height 0.5s ease-in;
+}
+
+/* Terminal Photo Styles */
+.terminal-photo {
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--accent-primary);
+    overflow: hidden;
+}
+
+.terminal-photo .terminal-header {
+    background: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--accent-primary);
+}
+
+.terminal-photo-content {
+    padding: 1rem;
+}
+
+.photo-frame {
+    background: var(--bg-primary);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--accent-primary);
+    position: relative;
+}
+
+.photo-frame::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(78, 201, 176, 0.1) 25%, 
+        transparent 25%, 
+        transparent 75%, 
+        rgba(78, 201, 176, 0.1) 75%);
+    background-size: 10px 10px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.profile-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.profile-photo[src*="default-profile.png"] {
+    opacity: 0.7;
+}
+
+.terminal-photo .terminal-line {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-primary);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Add a glowing effect on hover */
+.photo-frame:hover::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid var(--terminal-green);
+    border-radius: 6px;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px var(--terminal-green),
+                    0 0 10px var(--terminal-green),
+                    0 0 15px var(--terminal-green);
+    }
+    to {
+        box-shadow: 0 0 10px var(--terminal-green),
+                    0 0 20px var(--terminal-green),
+                    0 0 30px var(--terminal-green);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .terminal-photo {
+        max-width: 300px;
+    }
+}
+
+/* Portfolio Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.project-card {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--accent-primary);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.terminal-window {
+    width: 100%;
+}
+
+.terminal-header {
+    background: var(--bg-secondary);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--accent-primary);
+}
+
+.terminal-title {
+    color: var(--terminal-green);
+    font-size: 0.9rem;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-button-red,
+.terminal-button-yellow,
+.terminal-button-green {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-button-red {
+    background: #ff5f56;
+}
+
+.terminal-button-yellow {
+    background: #ffbd2e;
+}
+
+.terminal-button-green {
+    background: #27c93f;
+}
+
+.terminal-content {
+    padding: 1rem;
+}
+
+.directory-tree {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.project-info {
+    padding: 1rem;
+}
+
+.description {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech {
+    background: var(--bg-primary);
+    color: var(--terminal-green);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    border: 1px solid var(--terminal-green);
+}
+
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .directory-tree {
+        font-size: 0.7rem;
+    }
+}
+
+/* Portfolio Section */
+#portfolio {
+    padding: 4rem 0;
+}
+
+.terminal-window {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--accent-primary);
+    margin: 2rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.terminal-header {
+    background: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--accent-primary);
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    opacity: 0.7;
+}
+
+.terminal-content {
+    padding: 1.5rem;
+}
+
+.project-item {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--accent-primary);
+    padding-bottom: 2rem;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.project-header {
+    color: var(--terminal-green);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 1rem;
+}
+
+.project-structure {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+}
+
+.project-structure pre {
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.prompt {
+    color: var(--terminal-green);
+    margin-right: 0.5rem;
+}
+
+.command-output {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.command-output .output {
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+    white-space: pre-wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+/* Project structure tree styling */
+.project-structure pre {
+    color: var(--text-primary);
+}
+
+/* Add hover effect for project items */
+.project-item:hover .project-structure {
+    border: 1px solid var(--terminal-green);
+    transition: border-color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .terminal-window {
+        margin: 1rem 0;
+    }
+
+    .project-structure {
+        font-size: 0.8rem;
+    }
+
+    .command-output {
+        font-size: 0.8rem;
+    }
+}
+
+/* Project Details and Read More Button */
+.project-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+    opacity: 1;
+    max-height: 1000px;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-details.hidden {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.read-more-btn {
+    background: var(--bg-primary);
+    border: 1px solid var(--accent-primary);
+    color: var(--terminal-green);
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: left;
+}
+
+.read-more-btn:hover {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+}
+
+.read-more-btn .prompt {
+    color: inherit;
+}
+
+/* Add typing animation for project details */
+.project-details:not(.hidden) {
+    animation: typing 0.5s steps(40, end);
+}
+
+@keyframes typing {
+    from { 
+        clip-path: inset(0 100% 0 0);
+    }
+    to { 
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Style API endpoints */
+.project-details {
+    color: var(--text-primary);
+}
+
+.project-details br {
+    margin-bottom: 0.5rem;
+}
+
+/* Technical details styling */
+.project-details br + :not(br) {
+    color: var(--terminal-yellow);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* GitHub Link Styles */
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--terminal-green);
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--terminal-green);
+    border-radius: 4px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background: var(--terminal-green);
+    color: var(--bg-primary);
+}
+
+.github-link i {
+    font-size: 1.1rem;
+}
+
+/* Skills Section */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -375,10 +943,7 @@ section h2 {
     color: var(--terminal-yellow);
 }
 
-/* =============== Contact Section Styles =============== */
-/**
- * Set styles for contact section elements
- */
+/* Contact Section */
 #contact {
     padding: 4rem 0;
     background-color: #1E1E1E;
@@ -539,10 +1104,7 @@ section h2 {
     display: none;
 }
 
-/* =============== Footer Styles =============== */
-/**
- * Set styles for footer elements
- */
+/* Footer */
 footer {
     background: var(--bg-secondary);
     color: var(--text-primary);
@@ -562,19 +1124,13 @@ footer {
     color: var(--terminal-green);
 }
 
-/* =============== Terminal-like Effects =============== */
-/**
- * Set styles for terminal-like effects
- */
+/* Terminal-like effects */
 ::selection {
     background: var(--terminal-green);
     color: var(--bg-primary);
 }
 
-/* =============== Responsive Design =============== */
-/**
- * Set styles for responsive design
- */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     .nav-links {
         display: none;
