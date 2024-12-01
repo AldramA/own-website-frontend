@@ -1,0 +1,625 @@
+/**
+ * style.css - Main stylesheet for the portfolio website
+ * Author: Muhammed Sobhi
+ * Theme: Terminal-inspired dark theme
+ */
+
+/* =============== Reset and Base Styles =============== */
+/**
+ * Reset all elements to have no margin, padding, and box-sizing set to border-box
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Color Variables */
+/**
+ * Define color variables for the theme
+ */
+:root {
+    --bg-primary: #1E1E1E;      /* Main background color */
+    --bg-secondary: #252526;    /* Secondary background for elements */
+    --text-primary: #D4D4D4;    /* Primary text color */
+    --text-secondary: #858585;  /* Secondary text color for less emphasis */
+    --accent-primary: #569CD6;  /* Primary accent color */
+    --accent-secondary: #608B4E; /* Secondary accent for highlights */
+    --terminal-green: #4EC9B0;  /* Terminal success color */
+    --terminal-yellow: #DCDCAA; /* Terminal warning color */
+    --terminal-red: #CE9178;    /* Terminal error color */
+}
+
+/* Base Styles */
+/**
+ * Set base styles for the body element
+ */
+body {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+}
+
+/**
+ * Set styles for the container element
+ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =============== Navigation Styles =============== */
+/**
+ * Set styles for the navigation element
+ */
+nav {
+    background: var(--bg-secondary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--accent-primary);
+}
+
+/**
+ * Set styles for the navigation container
+ */
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+/* Logo Styling */
+/**
+ * Set styles for the logo element
+ */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--terminal-green);
+}
+
+/* Navigation Links */
+/**
+ * Set styles for the navigation links
+ */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--terminal-green);
+}
+
+.nav-links a.active {
+    color: var(--terminal-green);
+    border-bottom: 2px solid var(--terminal-green);
+}
+
+/* =============== Section Styles =============== */
+/**
+ * Set styles for section elements
+ */
+section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--bg-secondary);
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--terminal-yellow);
+}
+
+/* =============== Terminal Window Styles =============== */
+/**
+ * Set styles for terminal window elements
+ */
+.terminal-window {
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/**
+ * Set styles for terminal window headers
+ */
+.terminal-header {
+    background: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/**
+ * Set styles for terminal window buttons
+ */
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Terminal Window Control Buttons */
+/**
+ * Set styles for terminal window control buttons
+ */
+.terminal-button-red,
+.terminal-button-yellow,
+.terminal-button-green {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-button-red { background: #ff5f56; }
+.terminal-button-yellow { background: #ffbd2e; }
+.terminal-button-green { background: #27c93f; }
+
+/**
+ * Set styles for terminal window content
+ */
+.terminal-content {
+    padding: 1rem;
+}
+
+/* =============== Portfolio Error Styles =============== */
+/**
+ * Set styles for portfolio error elements
+ */
+.portfolio-error-window {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-message {
+    background: rgba(255, 0, 0, 0.1);
+    border-left: 3px solid var(--terminal-red);
+    padding: 1rem;
+    margin: 1rem 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.error-icon {
+    color: var(--terminal-red);
+    margin-right: 0.5rem;
+}
+
+.error-code {
+    color: var(--terminal-yellow);
+}
+
+.error-details {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.error-suggestion {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--bg-secondary);
+}
+
+.error-suggestion .comment {
+    color: var(--accent-secondary);
+}
+
+/* Terminal Links */
+/**
+ * Set styles for terminal links
+ */
+.terminal-link {
+    color: var(--terminal-green);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--terminal-green);
+}
+
+.terminal-link:hover {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+}
+
+/* =============== Loading Animation Styles =============== */
+/**
+ * Set styles for loading animation elements
+ */
+.loading-message {
+    padding: 1rem 0;
+    color: var(--terminal-yellow);
+}
+
+/* Loading Spinner Animation */
+/**
+ * Define animation for loading spinner
+ */
+@keyframes spin {
+    0% { content: "⠋"; }
+    10% { content: "⠙"; }
+    20% { content: "⠹"; }
+    30% { content: "⠸"; }
+    40% { content: "⠼"; }
+    50% { content: "⠴"; }
+    60% { content: "⠦"; }
+    70% { content: "⠧"; }
+    80% { content: "⠇"; }
+    90% { content: "⠏"; }
+}
+
+.loading-spinner::before {
+    content: "⠋";
+    animation: spin 1s steps(10) infinite;
+    display: inline-block;
+    width: 1em;
+}
+
+/* =============== Retry Button Styles =============== */
+/**
+ * Set styles for retry button elements
+ */
+.retry-button {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.terminal-retry-btn {
+    background: none;
+    border: 1px solid var(--terminal-green);
+    color: var(--terminal-green);
+    padding: 0.5rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.terminal-retry-btn:hover:not(:disabled) {
+    background: var(--terminal-green);
+    color: var(--bg-primary);
+}
+
+.terminal-retry-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+.retry-countdown {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* =============== Cursor Animation =============== */
+/**
+ * Define animation for cursor blink
+ */
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* =============== Skills Section Styles =============== */
+/**
+ * Set styles for skills section elements
+ */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.skill-category {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--accent-primary);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    border-color: var(--terminal-green);
+}
+
+.skill-category h3 {
+    color: var(--terminal-green);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--accent-primary);
+    padding-bottom: 0.5rem;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.skill-category li:before {
+    content: "$";
+    position: absolute;
+    left: 0;
+    color: var(--terminal-yellow);
+}
+
+/* =============== Contact Section Styles =============== */
+/**
+ * Set styles for contact section elements
+ */
+#contact {
+    padding: 4rem 0;
+    background-color: #1E1E1E;
+}
+
+.terminal-window {
+    background-color: #252526;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: #323233;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3E3E3E;
+}
+
+.terminal-title {
+    color: #DCDCAA;
+    font-size: 0.9rem;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4EC9B0;
+}
+
+.terminal-button:nth-child(2) {
+    background-color: #569CD6;
+}
+
+.terminal-button:nth-child(3) {
+    background-color: #DCDCAA;
+}
+
+.terminal-content {
+    padding: 1.5rem;
+    color: #D4D4D4;
+}
+
+.command-line {
+    margin-bottom: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.prompt {
+    color: #4EC9B0;
+    margin-right: 0.5rem;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: #323233;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #D4D4D4;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #3E3E3E;
+    transform: translateY(-2px);
+}
+
+.social-link i {
+    font-size: 1.5rem;
+    color: #4EC9B0;
+}
+
+.contact-form {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #323233;
+    border: 1px solid #3E3E3E;
+    border-radius: 4px;
+    color: #D4D4D4;
+    font-family: 'JetBrains Mono', monospace;
+    resize: vertical;
+}
+
+.form-group textarea {
+    min-height: 120px;
+}
+
+.submit-btn {
+    background-color: #4EC9B0;
+    color: #1E1E1E;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #3DA890;
+    transform: translateY(-2px);
+}
+
+#form-response {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+#form-response.success {
+    background-color: rgba(78, 201, 176, 0.1);
+    border: 1px solid #4EC9B0;
+}
+
+#form-response.error {
+    background-color: rgba(244, 71, 71, 0.1);
+    border: 1px solid #F44747;
+}
+
+.hidden {
+    display: none;
+}
+
+/* =============== Footer Styles =============== */
+/**
+ * Set styles for footer elements
+ */
+footer {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--accent-primary);
+}
+
+.social-links a {
+    color: var(--text-primary);
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--terminal-green);
+}
+
+/* =============== Terminal-like Effects =============== */
+/**
+ * Set styles for terminal-like effects
+ */
+::selection {
+    background: var(--terminal-green);
+    color: var(--bg-primary);
+}
+
+/* =============== Responsive Design =============== */
+/**
+ * Set styles for responsive design
+ */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-secondary);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .terminal-photo {
+        width: 90%;
+        margin: 0 auto 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-text {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+}
